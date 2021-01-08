@@ -1,0 +1,10 @@
+{
+  "$schema": "../../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "hello":{
+      "description": "create a hello.ts",
+      "factory": "./ng-generate/hello/index#hello",
+      "schema":"./ng-generate/hello/schema.json"
+    }
+  }
+}

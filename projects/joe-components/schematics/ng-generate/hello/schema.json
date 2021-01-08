@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "hello",
+  "title": "example",
+  "type": "object",
+  "description": "creat a hello.ts",
+  "properties": {
+    "userName": {
+      "description": "input your name",
+      "type": "string",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "請輸入你的名字"
+    }
+  },
+  "required": []
+}

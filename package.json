@@ -6,10 +6,20 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "lib:build": "ng build joe-components --prod",
+    "lib:serve": "ng build joe-components --watch",
+    "lib:build:all": "npm run lib:build && npm run lib:schematics:build:prod && npm run lib:schematics:postbuild:all",
+    "lib:schematics:build": "tsc -p ./projects/joe-components/tsconfig.schematics.json",
+    "lib:schematics:copy:collection": "cd ./projects/joe-components && cpy schematics/collection.json ../../dist/joe-components/schematics",
+    "lib:schematics:copy:ng-add:schemas": "cd ./projects/joe-components && cpy --parents schematics/*/schema.json ../../dist/joe-components/",
+    "lib:schematics:copy:ng-generate:schemas": "cd ./projects/joe-components && cpy --parents schematics/*/*/schema.json ../../dist/joe-components/",
+    "lib:schematics:postbuild:ng-generate": "npm run lib:schematics:copy:ng-generate:schemas && npm run lib:schematics:copy:collection",
+    "lib:schematics:test:ng-generate:hello": "npm run lib:build && npm run lib:schematics:build && npm run lib:schematics:postbuild:ng-generate && schematics ./dist/joe-components:hello --project=test-app"
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/schematics": "^11.0.6",
     "@angular/animations": "~11.0.1",
     "@angular/common": "~11.0.1",
     "@angular/compiler": "~11.0.1",
@@ -18,6 +28,7 @@
     "@angular/platform-browser": "~11.0.1",
     "@angular/platform-browser-dynamic": "~11.0.1",
     "@angular/router": "~11.0.1",
+    "cpy-cli": "^3.1.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
