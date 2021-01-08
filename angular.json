@@ -3,5 +3,46 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "joe-components": {
+      "projectType": "library",
+      "root": "projects/joe-components",
+      "sourceRoot": "projects/joe-components/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/joe-components/tsconfig.lib.json",
+            "project": "projects/joe-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/joe-components/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/joe-components/src/test.ts",
+            "tsConfig": "projects/joe-components/tsconfig.spec.json",
+            "karmaConfig": "projects/joe-components/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/joe-components/tsconfig.lib.json",
+              "projects/joe-components/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "joe-components"
 }
