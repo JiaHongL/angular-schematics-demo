@@ -1,9 +1,31 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { TextInputComponent } from './text-input/text-input.component';
+import { PasswordInputComponent } from './password-input/password-input.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
-  declarations: [],
-  imports: [
+  declarations: [
+    ButtonComponent,
+    PasswordInputComponent,
+    TextInputComponent
   ],
-  exports: []
+  imports: [
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  exports: [
+    ButtonComponent,
+    PasswordInputComponent,
+    TextInputComponent
+  ]
 })
-export class JoeComponentsModule { }
+export class JoeComponentsModule {
+  static forRoot(): ModuleWithProviders<any> {
+    return {
+      ngModule: JoeComponentsModule,
+      providers: []
+    };
+  }
+}
