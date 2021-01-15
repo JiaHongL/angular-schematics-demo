@@ -10,13 +10,13 @@
     "e2e": "ng e2e",
     "lib:build": "ng build joe-components --prod",
     "lib:serve": "ng build joe-components --watch",
-    "lib:build:all": "npm run lib:build && npm run lib:schematics:build:prod && npm run lib:schematics:postbuild:all",
+    "lib:build:all": "npm run lib:build && npm run lib:schematics:build && npm run lib:schematics:postbuild:ng-generate",
     "lib:schematics:build": "tsc -p ./projects/joe-components/tsconfig.schematics.json",
     "lib:schematics:copy:collection": "cd ./projects/joe-components && cpy schematics/collection.json ../../dist/joe-components/schematics",
     "lib:schematics:copy:ng-add:schemas": "cd ./projects/joe-components && cpy --parents schematics/*/schema.json ../../dist/joe-components/",
     "lib:schematics:copy:ng-generate:schemas": "cd ./projects/joe-components && cpy --parents schematics/*/*/schema.json ../../dist/joe-components/",
     "lib:schematics:postbuild:ng-generate": "npm run lib:schematics:copy:ng-generate:schemas && npm run lib:schematics:copy:collection",
-    "lib:schematics:test:ng-generate:hello": "npm run lib:build && npm run lib:schematics:build && npm run lib:schematics:postbuild:ng-generate && schematics ./dist/joe-components:hello --project=test-app --debug=false"
+    "lib:schematics:test:ng-generate:hello": "npm run lib:build && npm run lib:schematics:build && npm run lib:schematics:postbuild:ng-generate && schematics ./dist/joe-components:hello --project=test-app"
   },
   "private": true,
   "dependencies": {
