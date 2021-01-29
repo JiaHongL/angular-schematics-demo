@@ -21,11 +21,4 @@ import { ButtonComponent } from './button/button.component';
     TextInputComponent
   ]
 })
-export class JoeComponentsModule {
-  static forRoot(): ModuleWithProviders<any> {
-    return {
-      ngModule: JoeComponentsModule,
-      providers: []
-    };
-  }
-}
+export class JoeComponentsModule {}

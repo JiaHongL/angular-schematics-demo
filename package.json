@@ -18,7 +18,7 @@
     "lib:schematics:postbuild:ng-generate": "npm run lib:schematics:copy:ng-generate:schemas && npm run lib:schematics:copy:collection",
     "lib:schematics:test:ng-generate:hello": "npm run lib:build && npm run lib:schematics:build && npm run lib:schematics:postbuild:ng-generate && schematics ./dist/joe-components:hello --project=test-app"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular-devkit/schematics": "^11.0.6",
     "@angular/animations": "~11.0.1",

@@ -16,10 +16,8 @@
       "dom"
     ],
     "paths": {
-      "joe-components": [
-        "dist/joe-components/joe-components",
-        "dist/joe-components"
-      ]
+      "joe-components": ["dist/joe-components"],
+      "joe-components/*": ["dist/joe-components/*"]
     }
   }
 }
