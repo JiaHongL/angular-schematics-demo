@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "sp",
+  "title": "example",
+  "type": "object",
+  "description": "creat a seeds project",
+  "properties": {
+    "name": {
+      "description": "input your project name",
+      "type": "string",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use for the new workspace and initial project!?"
+    }
+  },
+  "required": []
+}

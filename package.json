@@ -15,8 +15,12 @@
     "lib:schematics:copy:collection": "cd ./projects/joe-components && cpy schematics/collection.json ../../dist/joe-components/schematics",
     "lib:schematics:copy:ng-add:schemas": "cd ./projects/joe-components && cpy --parents schematics/*/schema.json ../../dist/joe-components/",
     "lib:schematics:copy:ng-generate:schemas": "cd ./projects/joe-components && cpy --parents schematics/*/*/schema.json ../../dist/joe-components/",
-    "lib:schematics:postbuild:ng-generate": "npm run lib:schematics:copy:ng-generate:schemas && npm run lib:schematics:copy:collection",
-    "lib:schematics:test:ng-generate:hello": "npm run lib:build && npm run lib:schematics:build && npm run lib:schematics:postbuild:ng-generate && schematics ./dist/joe-components:hello --project=test-app"
+    "lib:schematics:copy:ng-new:schemas": "cd ./projects/joe-components && cpy --parents schematics/*/*/schema.json ../../dist/joe-components/",
+    "lib:schematics:copy:all:files": "cd ./projects/joe-components && cpy --parents schematics/**/**/files/** ../../dist/joe-components/ -r",
+    "lib:schematics:postbuild:ng-generate": "npm run lib:schematics:copy:ng-generate:schemas && npm run lib:schematics:copy:collection && npm run  lib:schematics:copy:all:files",
+    "lib:schematics:postbuild:ng-new": "npm run lib:schematics:copy:ng-new:schemas && npm run lib:schematics:copy:collection && npm run lib:schematics:copy:all:files",
+    "lib:schematics:test:ng-generate:hello": "npm run lib:build && npm run lib:schematics:build && npm run lib:schematics:postbuild:ng-generate && schematics ./dist/joe-components:hello --project=test-app",
+    "lib:schematics:test:ng-new:seeds-project": "npm run lib:build && npm run lib:schematics:build && npm run lib:schematics:postbuild:ng-new && schematics ./dist/joe-components:ng-new"
   },
   "private": false,
   "dependencies": {

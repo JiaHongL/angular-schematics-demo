@@ -5,6 +5,12 @@
       "description": "create a hello.ts",
       "factory": "./ng-generate/hello/index#hello",
       "schema":"./ng-generate/hello/schema.json"
+    },
+    "ng-new":{
+      "description": "new a seeds project",
+      "factory": "./ng-new/seeds-project/index#seedsProject",
+      "schema":"./ng-new/seeds-project/schema.json",
+      "aliases": ["sp"]
     }
   }
 }
