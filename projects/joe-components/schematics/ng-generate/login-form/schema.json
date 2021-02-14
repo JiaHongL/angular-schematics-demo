@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "loginForm",
+  "title": "Login Form Options Schema",
+  "type": "object",
+  "description": "creat a login form",
+  "properties": {
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path to create the component.",
+      "visible": false
+    },
+    "project": {
+      "type": "string",
+      "description": "The name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the component.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What should be the name of the component?"
+    },
+    "style": {
+      "description": "The file extension to be used for style files.",
+      "type": "string"
+    },
+    "skipTests": {
+      "type": "boolean",
+      "description": "When true, does not generate a test file."
+    },
+    "selector": {
+      "type": "string",
+      "format": "html-selector",
+      "description": "The selector to use for the component."
+    },
+    "addVersion": {
+      "description": "create version",
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": ["name"]
+}

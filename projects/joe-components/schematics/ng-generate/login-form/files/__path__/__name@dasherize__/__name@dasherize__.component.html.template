@@ -1,0 +1,8 @@
+<div class="wrapper">
+  <form class="form" [formGroup]="loginForm">
+    <joe-text-input placeholder="帳號"  formControlName="account"></joe-text-input>
+    <joe-password-input placeholder="密碼"  formControlName="password"></joe-password-input>
+    <joe-button (buttonClick)="login()">登入</joe-button>
+    <div class="version">{{ version }}</div>
+  </form>
+</div>

@@ -5,6 +5,8 @@
     "entryFile": "src/public-api.ts"
   },
   "whitelistedNonPeerDependencies": [
-    "@angular-devkit/schematics"
+    "@angular-devkit/schematics",
+    "@angular/cdk",
+    "@schematics/angular"
   ]
 }

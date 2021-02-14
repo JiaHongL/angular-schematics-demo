@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "hello",
+  "title": "example",
+  "type": "object",
+  "description": "creat a hello.ts",
+  "properties": {
+    "userName": {
+      "description": "the name of info",
+      "type": "string",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "請輸入你的名字"
+    },
+    "workExperience": {
+      "description": "work experience of info",
+      "type": "number",
+      "enum": [
+        0.5,
+        1,
+        3,
+        5,
+        10,
+        20
+      ],
+      "x-prompt": "目前的工作經驗約幾年？"
+    },
+    "job": {
+      "description": "the job of info",
+      "type": "string",
+      "x-prompt": {
+        "message": "請選擇你的職位",
+        "type": "list",
+        "items": [
+          {
+            "value": "Backend",
+            "label": "後端工程師"
+          },
+          {
+            "value": "Frontend",
+            "label": "前端工程師"
+          },
+          {
+            "value": "Full Stack",
+            "label": "真.全端工程師"
+          }
+        ]
+      }
+    },
+    "programmingLanguages": {
+      "type": "array",
+      "description": "programming languages of info",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      },
+      "x-prompt": {
+        "message": "你喜歡的程式語言有哪些?",
+        "type": "list",
+        "multiselect": true,
+        "items": [
+          {
+            "value": "'javascript'",
+            "label": "javascript"
+          },
+          {
+            "value": "'java'",
+            "label": "java"
+          },
+          {
+            "value": "'css'",
+            "label": "css"
+          },
+          {
+            "value": "'typescript'",
+            "label": "typescript"
+          },
+          {
+            "value": "'c#'",
+            "label": "c#"
+          },
+          {
+            "value": "'go'",
+            "label": "go"
+          },
+          {
+            "value": "'python'",
+            "label": "python"
+          },
+          {
+            "value": "'php'",
+            "label": "php"
+          }
+        ]
+      }
+    },
+    "isEmployed": {
+      "description": "working status of info",
+      "type": "boolean",
+      "default": true,
+      "x-prompt": "請問是否在職?"
+    }
+  },
+  "required": [
+    "userName"
+  ]
+}

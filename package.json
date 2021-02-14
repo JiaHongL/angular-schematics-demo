@@ -20,12 +20,15 @@
     "lib:schematics:postbuild:ng-generate": "npm run lib:schematics:copy:ng-generate:schemas && npm run lib:schematics:copy:collection && npm run  lib:schematics:copy:all:files",
     "lib:schematics:postbuild:ng-new": "npm run lib:schematics:copy:ng-new:schemas && npm run lib:schematics:copy:collection && npm run lib:schematics:copy:all:files",
     "lib:schematics:test:ng-generate:hello": "npm run lib:build && npm run lib:schematics:build && npm run lib:schematics:postbuild:ng-generate && schematics ./dist/joe-components:hello --project=test-app",
-    "lib:schematics:test:ng-new:seeds-project": "npm run lib:build && npm run lib:schematics:build && npm run lib:schematics:postbuild:ng-new && schematics ./dist/joe-components:ng-new"
+    "lib:schematics:test:ng-new:seeds-project": "npm run lib:build && npm run lib:schematics:build && npm run lib:schematics:postbuild:ng-new && schematics ./dist/joe-components:ng-new",
+    "lib:schematics:test:ng-generate:info": "npm run lib:build && npm run lib:schematics:build && npm run lib:schematics:postbuild:ng-generate && schematics ./dist/joe-components:info --project=test-app",
+    "lib:schematics:test:ng-generate:login-form": "npm run lib:build && npm run lib:schematics:build && npm run lib:schematics:postbuild:ng-generate && schematics ./dist/joe-components:login-form --project=test-app"
   },
   "private": false,
   "dependencies": {
     "@angular-devkit/schematics": "^11.0.6",
     "@angular/animations": "~11.0.1",
+    "@angular/cdk": "^11.2.0",
     "@angular/common": "~11.0.1",
     "@angular/compiler": "~11.0.1",
     "@angular/core": "~11.0.1",
@@ -33,6 +36,7 @@
     "@angular/platform-browser": "~11.0.1",
     "@angular/platform-browser-dynamic": "~11.0.1",
     "@angular/router": "~11.0.1",
+    "@schematics/angular": "^11.2.0",
     "cpy-cli": "^3.1.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

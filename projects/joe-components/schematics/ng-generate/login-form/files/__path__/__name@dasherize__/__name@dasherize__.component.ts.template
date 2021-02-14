@@ -2,20 +2,20 @@ import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: '<%= selector %>',
+  templateUrl: './<%= dasherize(name) %>.component.html',
+  styleUrls: ['./<%= dasherize(name) %>.component.<%= style %>']
 })
-export class AppComponent {
+export class <%= classify(name) %>Component {<% if(addVersion) { %>
 
-  version = 'v.2021.01.10';
+  version = '<%=getVersion()%>';<% } %>
 
   loginForm = this.fb.group({
     account: '',
     password: '',
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {}
 
   login(): void {
     const message =

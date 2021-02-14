@@ -1,16 +1,35 @@
 {
   "$schema": "../../../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
-    "hello":{
+    "hello": {
       "description": "create a hello.ts",
       "factory": "./ng-generate/hello/index#hello",
-      "schema":"./ng-generate/hello/schema.json"
+      "schema": "./ng-generate/hello/schema.json"
     },
-    "ng-new":{
+    "ng-new": {
       "description": "new a seeds project",
       "factory": "./ng-new/seeds-project/index#seedsProject",
-      "schema":"./ng-new/seeds-project/schema.json",
-      "aliases": ["sp"]
+      "schema": "./ng-new/seeds-project/schema.json",
+      "aliases": [
+        "sp"
+      ]
+    },
+    "info": {
+      "description": "create a user info",
+      "factory": "./ng-generate/info/index#info",
+      "schema": "./ng-generate/info/schema.json",
+      "aliases": [
+        "i"
+      ]
+    },
+    "loginForm": {
+      "description": "Create a component with a login form",
+      "factory": "./ng-generate/login-form/index#loginForm",
+      "schema": "./ng-generate/login-form/schema.json",
+      "aliases": [
+        "login-form",
+        "lf"
+      ]
     }
   }
 }
