@@ -37,6 +37,8 @@ export function info(options: Schema): Rule {
 
 function generateInfo(options: Schema): string {
 
+  console.log('options', options);
+
   const { userName, workExperience, job, programmingLanguages, isEmployed } = options;
 
   return `
